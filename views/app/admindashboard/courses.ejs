@@ -1,0 +1,20 @@
+<div x-data="{ sidebarOpen: false }" class="flex h-screen">
+    <%- include('../../partials/admindashboard/sidebar.ejs') %> 
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <%- include('../../partials/admindashboard/navbar.ejs')  %> 
+        <main class="overflow-auto h-auto">
+            <div class="container mx-auto">
+                <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
+                    <%- include('../../partials/index/messages.ejs')  %> 
+                </div>
+                <div class="py-4 p-8 text-center">
+                    <h1 class="pt-8 text-4xl">Good day <%= admin_name %>!</h1>
+                </div>
+                <div class="flex justify-between">
+                    <h1 class="text-4xl">List of Course</h1>
+                    <div class="p-2 text-2xl bg-red-300 rounded-xl"><a href="/admin/dashboard/addcourse">Add a class</a></div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

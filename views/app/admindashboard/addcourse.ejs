@@ -1,0 +1,25 @@
+<div x-data="{ sidebarOpen: false }" class="flex h-screen">
+    <%- include('../../partials/admindashboard/sidebar.ejs') %> 
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <%- include('../../partials/admindashboard/navbar.ejs')  %> 
+        <main class="overflow-auto h-auto">
+            <div class="container mx-auto">
+                <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
+                    <%- include('../../partials/index/messages.ejs')  %> 
+                </div>
+                <div class="py-4 p-8 text-center">
+                    <h1 class="pt-8 text-4xl">Good day <%= admin_name %>!</h1>
+                </div>
+                <form action="/admin/dashboard/addcourse" method="POST">
+                    <label class="block">
+                        <span class="text-gray-700">Select</span>
+                        <select class="form-select block w-full mt-1">
+                          <option>Option 1</option>
+                          <option>Option 2</option>
+                        </select>
+                      </label>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div x-data="{ sidebarOpen: false }" class="flex h-screen">
+    <%- include('../../partials/admindashboard/sidebar.ejs') %> 
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <%- include('../../partials/admindashboard/navbar.ejs')  %> 
+        <main class="overflow-auto h-auto">
+            <div class="container mx-auto">
+                <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
+                    <%- include('../../partials/index/messages.ejs')  %> 
+                </div>
+                <div class="py-4 p-8 text-center">
+                    <h1 class="pt-8 text-4xl">Good day <%= admin_name %>!</h1>
+                    <p class="pt-8 text-4xl">List of User's</p>
+                </div>
+            </div>
+            <div class="container mx-auto">
+                <div class="py-4 p-8 grid grid-cols-3 gap-4">
+                    <div class="w-full h-32 hover:shadow-xl rounded-lg border-2 items-center flex flex-col justify-center bg-green-100">
+                        <div><h1 class="text-3xl  text-center">Total Number of Parents: <span><%= parentslist %> </span> </h1></div>
+                        <div class="flex"><a href="/admin/dashboard/parents" class="text-xl p-2">More Details</a>
+                            <a href="/admin/dashboard/parents"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12"  viewBox="0 0 24 24"><defs><style>.cls-1{fill:#ffc300;}.cls-2{fill:#111320;}</style></defs><g id="Arrows_ic-right" data-name="Arrows/ic-right"><path class="cls-1" d="M14.36,18.41l5.11-6.54a.83.83,0,0,0,0-1.1L14.36,5.23a.81.81,0,0,0-1.4.55V8.11h-8a1.61,1.61,0,0,0-1.61,1.6v3.22a1.6,1.6,0,0,0,1.61,1.6h8v3.34A.81.81,0,0,0,14.36,18.41Z"/><path class="cls-2" d="M23.24,9.6a14.07,14.07,0,0,0-1.37-1.17c-.93-.83-1.79-1.76-2.64-2.67S17.76,4.17,17,3.37a7.38,7.38,0,0,0-1-1.18,3,3,0,0,0-1.59-.4,3.06,3.06,0,0,0-2.62,2.64c-.15.63,0,1.23-.18,1.88S11.32,7.43,11.17,8a4.49,4.49,0,0,0-1.95-.93,41.79,41.79,0,0,0-4.28-.92,7.78,7.78,0,0,0-1.33-.25C.45,5.93,1,10.15,1,12s.07,3.75,2,4.68a11.29,11.29,0,0,0,4,.55c2,.1,4.05.09,6.08.16-.21.38-.41.76-.63,1.18-.36.69-.84,1.15-.53,1.95.57,1.45,2.44,1.07,3.47.52s.3-1.56-.62-1.18l-1.1.19c-.32-.82.88-2.46,1.51-2.66,1.05-.33.3-1.88-.53-1.84l-4.42.2c-1.19.05-2.39.1-3.58.17Q0,13.69,2.7,9.38C2.62,7.63,3.19,7,4.42,7.57c.92.16,1.85.34,2.77.54A13.27,13.27,0,0,1,11.7,9.74c.22.15.49-.15.48-.36a16.33,16.33,0,0,1,.5-4.56A2.63,2.63,0,0,1,15.06,3.6a21.21,21.21,0,0,0,1.65,1.77Q17.88,6.58,19,7.83c.71.74,1.38,1.52,2,2.33a1.32,1.32,0,0,1-.26,2L19,14.4l-2.53,3.22c-1,1.23,1.37,1.82,2,1l3-3.85a16.1,16.1,0,0,0,2.25-2.9A2.08,2.08,0,0,0,23.24,9.6Zm-10.91-4A3.17,3.17,0,0,1,12.58,5Z"/></g></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-full h-32 hover:shadow-xl rounded-lg border-2 items-center flex flex-col justify-center bg-red-100">
+                        <div><h1 class="text-3xl  text-center">Total Number of Students: <span><%= studentslist %> </span> </h1></div>
+                        <div class="flex"><a href="" class="text-xl p-2">More Details</a>
+                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12"  viewBox="0 0 24 24"><defs><style>.cls-1{fill:#ffc300;}.cls-2{fill:#111320;}</style></defs><g id="Arrows_ic-right" data-name="Arrows/ic-right"><path class="cls-1" d="M14.36,18.41l5.11-6.54a.83.83,0,0,0,0-1.1L14.36,5.23a.81.81,0,0,0-1.4.55V8.11h-8a1.61,1.61,0,0,0-1.61,1.6v3.22a1.6,1.6,0,0,0,1.61,1.6h8v3.34A.81.81,0,0,0,14.36,18.41Z"/><path class="cls-2" d="M23.24,9.6a14.07,14.07,0,0,0-1.37-1.17c-.93-.83-1.79-1.76-2.64-2.67S17.76,4.17,17,3.37a7.38,7.38,0,0,0-1-1.18,3,3,0,0,0-1.59-.4,3.06,3.06,0,0,0-2.62,2.64c-.15.63,0,1.23-.18,1.88S11.32,7.43,11.17,8a4.49,4.49,0,0,0-1.95-.93,41.79,41.79,0,0,0-4.28-.92,7.78,7.78,0,0,0-1.33-.25C.45,5.93,1,10.15,1,12s.07,3.75,2,4.68a11.29,11.29,0,0,0,4,.55c2,.1,4.05.09,6.08.16-.21.38-.41.76-.63,1.18-.36.69-.84,1.15-.53,1.95.57,1.45,2.44,1.07,3.47.52s.3-1.56-.62-1.18l-1.1.19c-.32-.82.88-2.46,1.51-2.66,1.05-.33.3-1.88-.53-1.84l-4.42.2c-1.19.05-2.39.1-3.58.17Q0,13.69,2.7,9.38C2.62,7.63,3.19,7,4.42,7.57c.92.16,1.85.34,2.77.54A13.27,13.27,0,0,1,11.7,9.74c.22.15.49-.15.48-.36a16.33,16.33,0,0,1,.5-4.56A2.63,2.63,0,0,1,15.06,3.6a21.21,21.21,0,0,0,1.65,1.77Q17.88,6.58,19,7.83c.71.74,1.38,1.52,2,2.33a1.32,1.32,0,0,1-.26,2L19,14.4l-2.53,3.22c-1,1.23,1.37,1.82,2,1l3-3.85a16.1,16.1,0,0,0,2.25-2.9A2.08,2.08,0,0,0,23.24,9.6Zm-10.91-4A3.17,3.17,0,0,1,12.58,5Z"/></g></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-full h-32 hover:shadow-xl rounded-lg border-2 items-center flex flex-col justify-center bg-blue-100">
+                        <div><h1 class="text-3xl  text-center">Total Number of Teachers: <span><%= teacherslist %> </span> </h1></div>
+                        <div class="flex"><a href="" class="text-xl p-2">More Details</a>
+                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12"  viewBox="0 0 24 24"><defs><style>.cls-1{fill:#ffc300;}.cls-2{fill:#111320;}</style></defs><g id="Arrows_ic-right" data-name="Arrows/ic-right"><path class="cls-1" d="M14.36,18.41l5.11-6.54a.83.83,0,0,0,0-1.1L14.36,5.23a.81.81,0,0,0-1.4.55V8.11h-8a1.61,1.61,0,0,0-1.61,1.6v3.22a1.6,1.6,0,0,0,1.61,1.6h8v3.34A.81.81,0,0,0,14.36,18.41Z"/><path class="cls-2" d="M23.24,9.6a14.07,14.07,0,0,0-1.37-1.17c-.93-.83-1.79-1.76-2.64-2.67S17.76,4.17,17,3.37a7.38,7.38,0,0,0-1-1.18,3,3,0,0,0-1.59-.4,3.06,3.06,0,0,0-2.62,2.64c-.15.63,0,1.23-.18,1.88S11.32,7.43,11.17,8a4.49,4.49,0,0,0-1.95-.93,41.79,41.79,0,0,0-4.28-.92,7.78,7.78,0,0,0-1.33-.25C.45,5.93,1,10.15,1,12s.07,3.75,2,4.68a11.29,11.29,0,0,0,4,.55c2,.1,4.05.09,6.08.16-.21.38-.41.76-.63,1.18-.36.69-.84,1.15-.53,1.95.57,1.45,2.44,1.07,3.47.52s.3-1.56-.62-1.18l-1.1.19c-.32-.82.88-2.46,1.51-2.66,1.05-.33.3-1.88-.53-1.84l-4.42.2c-1.19.05-2.39.1-3.58.17Q0,13.69,2.7,9.38C2.62,7.63,3.19,7,4.42,7.57c.92.16,1.85.34,2.77.54A13.27,13.27,0,0,1,11.7,9.74c.22.15.49-.15.48-.36a16.33,16.33,0,0,1,.5-4.56A2.63,2.63,0,0,1,15.06,3.6a21.21,21.21,0,0,0,1.65,1.77Q17.88,6.58,19,7.83c.71.74,1.38,1.52,2,2.33a1.32,1.32,0,0,1-.26,2L19,14.4l-2.53,3.22c-1,1.23,1.37,1.82,2,1l3-3.85a16.1,16.1,0,0,0,2.25-2.9A2.08,2.08,0,0,0,23.24,9.6Zm-10.91-4A3.17,3.17,0,0,1,12.58,5Z"/></g></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto">
+                <div class="py-4 p-8 grid grid-cols-2 gap-4">
+                    <div class="w-full h-64 hover:shadow-xl rounded-lg border-2 bg-yellow-100">
+                        <h1>Course Details</h1>
+                    </div>
+                    <div class="w-full h-64 hover:shadow-xl rounded-lg border-2 bg-purple-100">
+                        <h1>Plans</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto">
+                <div class="py-4 p-8">
+                    <div class="w-full h-64 hover:shadow-xl rounded-lg border-2 bg-pink-100">
+                        <h1>Course Details</h1>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

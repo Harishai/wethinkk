@@ -1,0 +1,111 @@
+<div x-data="{ sidebarOpen: false }" class="flex h-screen">
+    <%- include('../../partials/parentsdashboard/sidebar.ejs') %> 
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <%- include('../../partials/parentsdashboard/navbar.ejs')  %> 
+        <main>
+            <div class="pt-24 container mx-auto">
+                <div class="pt-4">
+                    <h1 class="text-4xl">Add Children</h1>
+                    <p class="text-2xl pt-4">Create you child profile</p>
+                </div>
+                <div>
+                <form class="" action="/parents/dashboard/addchild" method="POST">
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <div class="">
+                                <div>
+                                    <% if(typeof derrors !='undefined') { %>
+                                        <% derrors.forEach(function(error) { %>
+                                        <div role="alert" class="my-2">
+                                            <div class="bg-red-500 text-white font-bold rounded px-4 py-2">
+                                            <%= error.msg %>
+                                            </div>
+                                        </div>
+                                        <% }); %>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+                                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                        id="name"
+                                        name="name"
+                                        type="text" 
+                                        value="<%= typeof name != 'undefined' ? name: '' %>"/>
+                            </div>
+                            <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                    id="username" 
+                                    type="text"
+                                    name="username"
+                                    value="<%= typeof username != 'undefined' ? username: '' %>"/>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Birthday</label>
+                                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                        id="bday" 
+                                        type="date"
+                                        name="bday"
+                                        value="<%= typeof bday != 'undefined' ? bday: '' %>"/>
+                                </div>
+                            <div class="mb-4">
+                                <span class="block text-gray-700 text-sm font-bold mb-2">Grade</span>
+                                <div class="mt-2">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" class="form-radio" name="grade" value="4">
+                                    <span class="ml-2">4</span>
+                                </label>
+                                <label class="inline-flex items-center ml-6">
+                                    <input type="radio" class="form-radio" name="grade" value="5">
+                                    <span class="ml-2">5</span>
+                                </label>
+                                <label class="inline-flex items-center ml-6">
+                                    <input type="radio" class="form-radio" name="grade" value="6">
+                                    <span class="ml-2">6</span>
+                                </label>
+                                <label class="inline-flex items-center ml-6">
+                                    <input type="radio" class="form-radio" name="grade" value="7">
+                                    <span class="ml-2">7</span>
+                                </label>
+                                <label class="inline-flex items-center ml-6">
+                                    <input type="radio" class="form-radio" name="grade" value="8">
+                                    <span class="ml-2">8</span>
+                                </label>
+                                <label class="inline-flex items-center ml-6">
+                                    <input type="radio" class="form-radio" name="grade" value="9">
+                                    <span class="ml-2">9</span>
+                                </label>
+                                <label class="inline-flex items-center ml-6">
+                                    <input type="radio" class="form-radio" name="grade" value="Others">
+                                    <span class="ml-2">Others</span>
+                                </label>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
+                            <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
+                                    id="password" 
+                                    type="password"
+                                    name="password"
+                                    value="<%= typeof password != 'undefined' ? password: '' %>"/>
+                            </div>
+                            <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="cfpassword">Confirm Password</label>
+                            <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
+                                    id="cfpassword"
+                                    name="cfpassword"
+                                    type="text"
+                                    value="<%= typeof cfpassword != 'undefined' ? cfpassword: '' %>"/>
+                            </div>
+                            <div class="">
+                                <button class="btn-hover color-4" type="submit">Add</button>
+                            </div>
+                            </div> 
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

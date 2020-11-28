@@ -1,0 +1,18 @@
+<svg width="1440" height="114" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <path d="m0,0l1440,0l0,114l-1440,0l0,-114z" id="a"/>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_1" fill-rule="evenodd" fill="none">
+   <mask fill="#eff8f9" transform="translate(-1,0) " id="b">
+    <use fill="#eff8f9" id="svg_2" xlink:href="#a"/>
+   </mask>
+   <path id="svg_3" mask="url(#b)" fill="#eff8f9" d="m-1,72.728c318.801,-48.485 558.801,-72.728 720,-72.728c161.199,0 401.199,24.243 720,72.728l0,765.146l-1440,0l0,-765.146z"/>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,37 @@
+<div>
+    <% if(typeof s_errors !='undefined') { %>
+        <% s_errors.forEach(function(s_errors) { %>
+          <div role="alert" class="my-2">
+            <div class="bg-red-500 text-white font-bold rounded px-4 py-2">
+              <%= s_errors.msg %>
+            </div>
+          </div>
+        <% }); %>
+    <% } %>
+    
+    <% if(s_success_msg != '') { %>
+      <div role="alert" class="my-2">
+        <div class="bg-green-500 text-white font-bold rounded px-4 py-2">
+          <%= s_success_msg %>
+        </div>
+      </div>
+    <% } %>
+    
+    <% if(s_error_msg != '') { %>
+      <div role="alert" class="my-2">
+        <div class="bg-red-500 text-white font-bold rounded px-4 py-2">
+          <%= s_error_msg %>
+        </div>
+      </div>
+    <% } %>
+
+    <% if(error != '') { %>
+      <div role="alert" class="my-2">
+        <div class="bg-red-500 text-white font-bold rounded px-4 py-2">
+          <%= error %>
+        </div>
+      </div>
+    <% } %>
+    
+    </div>
+    

@@ -1,0 +1,57 @@
+<div x-data="{ sidebarOpen: false }" class="flex h-screen">
+    <%- include('../../partials/admindashboard/sidebar.ejs') %> 
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <%- include('../../partials/admindashboard/navbar.ejs')  %> 
+        <main class="overflow-auto h-auto">
+            <div class="container mx-auto">
+                <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
+                    <%- include('../../partials/index/messages.ejs')  %> 
+                </div>
+                <div class="py-4 p-8 text-center">
+                    <h1 class="pt-8 text-4xl">Good day <%= admin_name %>!</h1>
+                    <p class="pt-8 text-4xl">List of Student's</p>
+                </div>
+            </div>
+            <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative m-4"
+			style="height: 405px;">
+			<table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
+				<thead>
+					<tr class="text-left">
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Id</th>
+						<th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Name</th>
+						<th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Username</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Grade</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Parents' Name</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Parent's Email</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">Team</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+                            <% for(let i=0; i< students_details.length; i++) { %>
+							<td class="border-dashed border-t border-gray-200 userId">
+								<span class="text-gray-700 px-6 py-3 flex items-center"><%= students_details[i]._id %></span>
+							</td>
+							<td class="border-dashed border-t border-gray-200 firstName">
+								<span class="text-gray-700 px-6 py-3 flex items-center"><%= students_details[i].name %></span>
+							</td>
+							<td class="border-dashed border-t border-gray-200 lastName">
+								<span class="text-gray-700 px-6 py-3 flex items-center"><%= students_details[i].username %></span>
+							</td>
+							<td class="border-dashed border-t border-gray-200 emailAddress">
+								<span class="text-gray-700 px-6 py-3 flex items-center"><%= students_details[i].grade %></span>
+                            </td>
+                            <td class="border-dashed border-t border-gray-200 emailAddress">
+								<span class="text-gray-700 px-6 py-3 flex items-center"><%= students_details[i].parent.name %></span>
+                            </td>
+                            <td class="border-dashed border-t border-gray-200 emailAddress">
+								<span class="text-gray-700 px-6 py-3 flex items-center"><%= students_details[i].parent.email %></span>
+							</td>
+                            <% } %>
+						</tr>
+				</tbody>
+			</table>
+		</div>       
+        </main>
+    </div>
+</div>
